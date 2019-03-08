@@ -6,7 +6,7 @@
   "author": "Gus Nordhielm",
   "main": "./lib",
   "bin": {
-    "tinyapp": "./bin"
+    "tinyapp": "./bin/index.js"
   },
   "scripts": {
     "test:basic": "node ./bin --from ./test/ --to ./test/test_output",
