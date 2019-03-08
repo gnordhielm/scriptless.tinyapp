@@ -4,13 +4,17 @@
   "version": "1.0.0",
   "license": "MIT",
   "author": "Gus Nordhielm",
-  "main": "./index.js",
+  "main": "./lib",
   "bin": {
-    "tinyapp": "./bin.js"
+    "tinyapp": "./bin"
+  },
+  "scripts": {
+    "test:basic": "node ./bin --from ./test/ --to ./test/test_output",
+    "test:develop": "node ./bin --from ./test/ --port 3001 --develop"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/leiops/tinyapp.git"
+    "url": "git+https://github.com/gnordhielm/scriptless.tinyapp.git"
   },
   "engines": {
     "npm": ">=6",
@@ -30,6 +34,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "commander": "~2.19.0",
     "css-loader": "^1.0.0",
     "memory-fs": "^0.4.1",
     "mini-css-extract-plugin": "^0.4.1",
