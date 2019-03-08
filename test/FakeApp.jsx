@@ -1,7 +1,7 @@
 import React from 'react';
 import FakeDependency from './FakeDependency.jsx';
 
-const text = 'HIII';
+const text = 'H   I   I';
 
 class FakeApp extends React.Component {
   render() {

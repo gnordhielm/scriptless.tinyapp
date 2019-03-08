@@ -53,7 +53,7 @@ Note that while tinyapp does take care of all the bundling tools, you'll want to
 
 ## Config
 
-### makeTinypp
+### makeTinyapp
 
 The default (and only) export.
 
@@ -68,9 +68,9 @@ Accepts/expects the following config options:
 
 Run in a project with tinyapp installed by simply running `tinyapp`.
 
-| Option  | Default    | Type     | Description                                                              |
-| ------- | ---------- | -------- | ------------------------------------------------------------------------ |
-| from    | './src'    | {string} | Path to the file where you call `makeTinyapp`.                           |
-| to      | './public' | {string} | Directory to write your app to.                                          |
-| develop | `false`    | {bool}   | Set to `true` to run your app with hot reloading and all that fun stuff. |
-| port    | 3000       | {string} | Port to serve your app on.                                               |
+| Option  | Default    | Type     | Description                                                          |
+| ------- | ---------- | -------- | -------------------------------------------------------------------- |
+| from    | './src'    | {string} | Path to the file where you call `makeTinyapp`.                       |
+| to      | './public' | {string} | Directory to write your app to.                                      |
+| develop | `false`    | {bool}   | Set to `true` to run your app with reloading and all that fun stuff. |
+| port    | 3000       | {string} | Port to serve your app on.                                           |

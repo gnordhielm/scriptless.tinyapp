@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 
 const FakeDependency = ({ text }) => (
-    <div>
-        <h3>FakeDependency</h3>
-        <p>{text}</p>
-    </div>
-)
+  <div>
+    <h3>Fake Dependency</h3>
+    <p>{text}</p>
+  </div>
+);
 
-export default FakeDependency
+export default FakeDependency;

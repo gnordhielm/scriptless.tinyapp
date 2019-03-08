@@ -1,0 +1,49 @@
+const path = require('path');
+const webpack = require('webpack');
+
+process.noDeprecation = true;
+
+module.exports = entry => ({
+  mode: 'development',
+  entry: ['webpack-hot-middleware/client?reload=true', entry],
+  output: {
+    filename: 'bundle.js',
+    path: '/'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              'babel-preset-env',
+              'babel-preset-react',
+              'babel-preset-stage-0'
+            ]
+          }
+        }
+      },
+      {
+        test: /\.(sa|sc|c)ss$/,
+        exclude: /node_modules/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
+      }
+    ]
+  },
+  resolve: {
+    extensions: ['.js', '.json', '.jsx']
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('development')
+      }
+    })
+  ],
+  target: 'web',
+  devtool: 'cheap-module-eval-source-map'
+});

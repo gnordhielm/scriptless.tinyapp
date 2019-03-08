@@ -4,6 +4,7 @@
 const program = require('commander');
 const { version } = require('../package.json');
 const buildApp = require('./buildApp');
+const serveApp = require('./serveApp');
 
 program
   .version(version)
@@ -11,7 +12,7 @@ program
   .option('--to [path]', 'Directory to write your app to.')
   .option(
     '--develop',
-    'Set to `true` to run your app with hot reloading and all that fun stuff.'
+    'Set to `true` to run your app with reloading and all that fun stuff.'
   )
   .option('--port [port]', 'Port to serve your app on.')
   .parse(process.argv);
@@ -23,4 +24,5 @@ const options = {
   port: program.port || '3000'
 };
 
-buildApp(options);
+if (options.develop) serveApp(options);
+else buildApp(options);
