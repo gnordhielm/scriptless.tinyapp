@@ -1,14 +1,14 @@
-const path = require('path')
-const webpack = require('webpack')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require('path');
+const webpack = require('webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-process.noDeprecation = true
+process.noDeprecation = true;
 
 module.exports = entry => ({
   mode: 'production',
   entry,
   output: {
-		filename: 'bundle.js',
+    filename: 'bundle.js',
     path: '/'
   },
   module: {
@@ -24,20 +24,14 @@ module.exports = entry => ({
               'babel-preset-react',
               'babel-preset-stage-0'
             ]
-          },
-        },
+          }
+        }
       },
       {
         test: /\.(sa|sc|c)ss$/,
-        exclude: /node_modules/,
-        use: [
-          MiniCssExtractPlugin.loader, 
-          'css-loader', 
-          'sass-loader'
-        ],
-      },
-    
-    ],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+      }
+    ]
   },
   resolve: {
     extensions: ['.js', '.json', '.jsx']
@@ -49,9 +43,9 @@ module.exports = entry => ({
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production')
-      },
+      }
     })
   ],
   target: 'web',
-  devtool: 'inline-source-map',
-})
+  devtool: 'inline-source-map'
+});
