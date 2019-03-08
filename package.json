@@ -1,0 +1,51 @@
+{
+  "name": "@scriptless/tinyapp",
+  "description": "A tool for generating minimal setup React apps.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Gus Nordhielm",
+  "main": "./index.js",
+  "bin": {
+    "tinyapp": "./bin.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leiops/tinyapp.git"
+  },
+  "engines": {
+    "npm": ">=6",
+    "node": ">=8"
+  },
+  "peerDependencies": {
+    "react": "16.x",
+    "react-dom": "16.x"
+  },
+  "devDependencies": {
+    "react": "16.x",
+    "react-dom": "16.x"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^1.0.0",
+    "memory-fs": "^0.4.1",
+    "mini-css-extract-plugin": "^0.4.1",
+    "minimize": "^2.2.0",
+    "mkdirp": "^0.5.1",
+    "node-sass": "^4.9.2",
+    "sass-loader": "^7.0.3",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.16.1"
+  },
+  "keywords": [
+    "react",
+    "bundler",
+    "utility",
+    "docs",
+    "lightweight",
+    "simple"
+  ]
+}
