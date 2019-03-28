@@ -1,7 +1,7 @@
 {
   "name": "@scriptless/tinyapp",
   "description": "A tool for generating minimal setup React apps.",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "license": "MIT",
   "author": "Gus Nordhielm",
   "main": "./lib",
@@ -9,7 +9,7 @@
     "tinyapp": "./bin/index.js"
   },
   "scripts": {
-    "test:basic": "node ./bin --from ./test/ --to ./test/test_output",
+    "test": "node ./bin --from ./test/ --to ./test/test_output",
     "test:develop": "node ./bin --from ./test/ --port 3001 --develop"
   },
   "repository": {

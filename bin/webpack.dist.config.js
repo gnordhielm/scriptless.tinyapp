@@ -2,6 +2,11 @@ const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+// DEV: hacky way to keep these as deps
+require('babel-preset-env');
+require('babel-preset-react');
+require('babel-preset-stage-0');
+
 process.noDeprecation = true;
 
 module.exports = entry => ({
@@ -19,6 +24,7 @@ module.exports = entry => ({
         use: {
           loader: 'babel-loader',
           options: {
+            babelrc: false,
             presets: [
               'babel-preset-env',
               'babel-preset-react',
