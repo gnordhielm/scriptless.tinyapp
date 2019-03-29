@@ -3,8 +3,7 @@
 
 const program = require('commander');
 const { version } = require('../package.json');
-const buildApp = require('./buildApp');
-const serveApp = require('./serveApp');
+const path = require('path');
 
 program
   .version(version)
@@ -17,9 +16,17 @@ program
   .option('--port [port]', 'Port to serve your app on.')
   .parse(process.argv);
 
+const from = path.resolve(process.cwd(), program.from || './src');
+const to = path.resolve(process.cwd(), program.to || './public');
+
+process.chdir(__dirname);
+
+const buildApp = require('./buildApp');
+const serveApp = require('./serveApp');
+
 const options = {
-  from: program.from || './src',
-  to: program.to || './public',
+  from,
+  to,
   develop: program.develop || false,
   port: program.port || '3000'
 };

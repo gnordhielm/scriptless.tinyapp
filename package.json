@@ -1,7 +1,7 @@
 {
   "name": "@scriptless/tinyapp",
   "description": "A tool for generating minimal setup React apps.",
-  "version": "1.0.7",
+  "version": "1.0.13",
   "license": "MIT",
   "author": "Gus Nordhielm",
   "main": "./lib",
