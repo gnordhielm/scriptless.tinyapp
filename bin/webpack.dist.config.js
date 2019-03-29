@@ -18,6 +18,14 @@ module.exports = entry => ({
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
+          options: {
+            babelrc: false,
+            presets: [
+              'babel-preset-env',
+              'babel-preset-react',
+              'babel-preset-stage-0'
+            ]
+          }
         }
       },
       {
