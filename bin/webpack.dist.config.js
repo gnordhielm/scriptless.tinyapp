@@ -1,8 +1,8 @@
-const path = require('path');
-const webpack = require('webpack');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path')
+const webpack = require('webpack')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-process.noDeprecation = true;
+process.noDeprecation = true
 
 module.exports = entry => ({
   mode: 'production',
@@ -21,9 +21,9 @@ module.exports = entry => ({
           options: {
             babelrc: false,
             presets: [
-              path.resolve(__dirname, '../node_modules/babel-preset-env'),
-              path.resolve(__dirname, '../node_modules/babel-preset-react'),
-              path.resolve(__dirname, '../node_modules/babel-preset-stage-0')
+              'babel-preset-env',
+              'babel-preset-react',
+              'babel-preset-stage-0'
             ]
           }
         }
@@ -49,4 +49,4 @@ module.exports = entry => ({
   ],
   target: 'web',
   devtool: 'inline-source-map'
-});
+})
