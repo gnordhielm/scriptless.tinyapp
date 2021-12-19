@@ -1,7 +1,7 @@
-/node_modules
+node_modules
 build
-/coverage
+coverage
 .DS_Store
 npm-debug.log*
 dist
-/test/test_output
+test_output

@@ -3,33 +3,22 @@
 
 const program = require('commander');
 const { version } = require('../package.json');
-const path = require('path');
 
 program
   .version(version)
-  .option('--from [path]', 'Path to the file where you call `makeTinyapp`')
-  .option('--to [path]', 'Directory to write your app to.')
+  .usage('[options]')
+  .option('--from [path]', 'Entrypoint.')
+  .option('--to [path]', 'Directory to write your app to. Defaults to `build`')
   .option(
     '--develop',
-    'Set to `true` to run your app with reloading and all that fun stuff.'
+    'Set to `true` to run your app with fast refresh and all that fun stuff (--dev also works).',
   )
   .option('--port [port]', 'Port to serve your app on.')
+  .action(async options => {
+    const isDev = options.develop || options.dev || false;
+    // const from = path.resolve(process.cwd(), options.from);
+    // const to = path.resolve(process.cwd(), options.to || './build');
+    // const port = options.port || '3000';
+    await (isDev ? import('./start.js') : import('./build.js'));
+  })
   .parse(process.argv);
-
-const from = path.resolve(process.cwd(), program.from || './src');
-const to = path.resolve(process.cwd(), program.to || './public');
-
-process.chdir(__dirname);
-
-const buildApp = require('./buildApp');
-const serveApp = require('./serveApp');
-
-const options = {
-  from,
-  to,
-  develop: program.develop || false,
-  port: program.port || '3000'
-};
-
-if (options.develop) serveApp(options);
-else buildApp(options);
