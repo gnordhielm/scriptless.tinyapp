@@ -1,7 +1,7 @@
 {
   "name": "@scriptless/tinyapp",
   "description": "A tool for generating minimal setup React apps.",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "license": "MIT",
   "author": "Gus Nordhielm",
   "main": "./lib",
@@ -25,7 +25,6 @@
     "react-dom": "17.0.2"
   },
   "dependencies": {
-    "commander": "8.3.0",
     "@babel/core": "^7.16.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
     "@svgr/webpack": "^5.5.0",
@@ -34,9 +33,9 @@
     "babel-plugin-named-asset-import": "^0.3.8",
     "babel-preset-react-app": "^10.0.1",
     "bfj": "^7.0.2",
-    "browserslist": "^4.18.1",
     "camelcase": "^6.2.1",
     "case-sensitive-paths-webpack-plugin": "^2.4.0",
+    "commander": "8.3.0",
     "css-loader": "^6.5.1",
     "css-minimizer-webpack-plugin": "^3.2.0",
     "dotenv": "^10.0.0",
@@ -52,6 +51,7 @@
     "jest-resolve": "^27.4.2",
     "jest-watch-typeahead": "^1.0.0",
     "mini-css-extract-plugin": "^2.4.5",
+    "node-sass": "7.0.0",
     "postcss": "^8.4.4",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-loader": "^6.2.1",
@@ -72,18 +72,6 @@
     "webpack": "^5.64.4",
     "webpack-dev-server": "^4.6.0",
     "webpack-manifest-plugin": "^4.0.2"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   },
   "keywords": [
     "react",

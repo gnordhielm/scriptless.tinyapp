@@ -48,7 +48,9 @@ const babelRuntimeRegenerator = require.resolve('@babel/runtime/regenerator', {
 const shouldInlineRuntimeChunk = process.env.INLINE_RUNTIME_CHUNK !== 'false';
 
 const emitErrorsAsWarnings = process.env.ESLINT_NO_DEV_ERRORS === 'true';
-const disableESLintPlugin = process.env.DISABLE_ESLINT_PLUGIN === 'true';
+// const disableESLintPlugin = process.env.DISABLE_ESLINT_PLUGIN === 'true';
+// TODO: support linting
+const disableESLintPlugin = true;
 
 const imageInlineSizeLimit = parseInt(
   process.env.IMAGE_INLINE_SIZE_LIMIT || '10000',
@@ -99,8 +101,6 @@ module.exports = function (webpackEnv) {
   // Omit trailing slash as %PUBLIC_URL%/xyz looks better than %PUBLIC_URL%xyz.
   // Get environment variables to inject into our app.
   const env = getClientEnvironment(paths.publicUrlOrPath.slice(0, -1));
-
-  const shouldUseReactRefresh = env.raw.FAST_REFRESH;
 
   // common function to get style loaders
   const getStyleLoaders = (cssOptions, preProcessor) => {
@@ -185,7 +185,7 @@ module.exports = function (webpackEnv) {
   };
 
   return {
-    target: ['browserslist'],
+    target: ['web'],
     mode: isEnvProduction ? 'production' : isEnvDevelopment && 'development',
     // Stop compilation early in production
     bail: isEnvProduction,
@@ -416,9 +416,7 @@ module.exports = function (webpackEnv) {
                   ],
                 ],
                 plugins: [
-                  isEnvDevelopment &&
-                    shouldUseReactRefresh &&
-                    require.resolve('react-refresh/babel'),
+                  isEnvDevelopment && require.resolve('react-refresh/babel'),
                 ].filter(Boolean),
                 // This is a feature of `babel-loader` for webpack (not Babel itself).
                 // It enables caching results in ./node_modules/.cache/babel-loader/
@@ -607,7 +605,6 @@ module.exports = function (webpackEnv) {
       // Experimental hot reloading for React .
       // https://github.com/facebook/react/tree/main/packages/react-refresh
       isEnvDevelopment &&
-        shouldUseReactRefresh &&
         new ReactRefreshWebpackPlugin({
           overlay: false,
         }),
